@@ -14,8 +14,9 @@ class Project(models.Model):
     description = models.TextField(blank=False, null=False)
     demo_link = models.CharField(max_length=500, null=False, blank=False)
     github_link = models.CharField(max_length=500, null=True, blank=True)
-    tech = models.CharField(max_length=200, null=False, blank=False)
+    techs = models.ManyToManyField(Tech)
 
+    
 
 
 
