@@ -11,10 +11,47 @@
     
     <div class="min-h-screen flex flex-col">
         {% include "components/navbar.html" %}
-        <div class="grow flex flex-col">{% block content %}{% endblock content %}</div>
+        <div class="grow flex flex-col mt-20 px-4 ">{% block content %}{% endblock content %}</div>
         {% include "components/footer.html" %}
     </div>
+    <script>
+    // Sélectionnez tous les éléments <a> avec la classe 'nav_lien'
+    var navLinks = document.querySelectorAll('a.nav_lien');
+
+    // Parcourez chaque lien
+    navLinks.forEach(function(link) {
+    // Ajoutez un écouteur d'événement 'click' à chaque lien
+        link.addEventListener('click', function(e) {
+            // Récupérez l'id du lien actif à partir du stockage local
+            let id = localStorage.getItem('idLink');
+            // Récupérez l'élément avec l'id recuperé
+            let element = document.getElementById(id);
+            // Ajoutez la classe 'text-blue-700' à cet élément
+            try {
+                element.classList.remove('text-blue-700');
+                
+            } catch (erreur) {
+                console.log(erreur)
+            }
+            // Récupérez l'id du lien
+            let idLink = link.id;
+            // Stockez l'id lien dans le stockage local du navigateur
+            localStorage.setItem('idLink', idLink);
+        });
+    });
+    // Récupérez l'id du lien actif à partir du stockage local
+    let id = localStorage.getItem('idLink');
+    // Récupérez l'élément avec l'id recuperé
+    let element = document.getElementById(id);
+    // Ajoutez la classe 'text-blue-700' à cet élément
+    try {
+        element.classList.add('text-blue-700');
+    } catch (erreur) {
+        console.log(erreur)
+    }
     
+
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 </body>
 </html>

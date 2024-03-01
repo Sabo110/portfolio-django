@@ -2,7 +2,7 @@
 
 
 {% block content %}
-    <div class="grid grid-cols-3 gapx-x-1">
+    <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1  gap-3">
         {% for project in page_obj %}
             {% include "components/card.html" %}
         {% empty %}
