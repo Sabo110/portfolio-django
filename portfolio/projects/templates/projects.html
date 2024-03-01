@@ -2,11 +2,12 @@
 
 
 {% block content %}
-    <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1  gap-3">
+    <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1  gap-3 mb-4">
         {% for project in page_obj %}
             {% include "components/card.html" %}
         {% empty %}
             <h1 class="text-center text-xl py-4">Aucun projet pour le moment!</h1>
         {% endfor %}
     </div>
+    {% include "components/pagination.html" %}
 {% endblock content %}
