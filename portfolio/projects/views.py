@@ -10,4 +10,7 @@ def index(request):
 class projectsListView(ListView):
     model = Project
     template_name = 'projects.html'
-    context_object_name = 'projects'
+    paginate_by = 6
+
+def about(request):
+    return render(request, 'about.html')
